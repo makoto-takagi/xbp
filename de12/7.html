@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <title></title>
+    
+</head>
+<body>
+    <h1>私がおすすめするエリア</h1>
+    <h2>新横浜駅</h2>
+
+    <div>
+       <div>通学合計時間、家賃、面積、築年数で絞ってグラフ化させて比較を行いました。</div>
+    
+       <div>全体的に比較して時間、面積、家賃、築年数がすべて平均的か平均より低く、選びやすい場所であることがわかる。<br>
+            学生が選ぶ場所としてはおすすめであるといえる。<br>
+            また交通面でも新幹線が乗り入れるなどして便利なうえ、駅周りも発展しているという意見があったたため総じて住みやすいといえると思う</div>
+        <div><h2>ソースコード</h2></div>
+        <code>
+            <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+                <li style="background-color:#EFF;">import pandas as pd  # データ分析に用いるライブラリ</li>
+                <li style="background-color:#EEF;">import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和</li>
+                <li style="background-color:#EFF;">plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">data_path = "./data.csv"</li>
+                <li style="background-color:#EFF;">df_data = pd.read_csv(data_path,  encoding="utf-8-sig")</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">df_data.groupby("路線").mean().loc[:,["合計時間","家賃","面積","築年数"]].plot.bar(subplots=True,</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout=(2,2),</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figsize=(16,10))</li>
+                <li style="background-color:#EEF;">plt.subplots_adjust(bottom=0.4)</li>
+                <li style="background-color:#EFF;">plt.show()</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">print(df_data.columns)</li>
+                <li style="background-color:#EEF;">print(df_data)</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">import pandas as pd  # データ分析に用いるライブラリ</li>
+                <li style="background-color:#EFF;">import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和</li>
+                <li style="background-color:#EEF;">plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">data_path = "./data.csv"</li>
+                <li style="background-color:#EFF;">df_data = pd.read_csv(data_path, encoding="utf-8-sig")</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">print(df_data.groupby("駅").mean().loc["新横浜駅", ["合計時間", "家賃", "面積", "築年数"]])</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">df_data.groupby("駅").mean().loc[:, ["合計時間", "家賃", "面積", "築年数"]].plot.bar(subplots=True,</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout=(2, 2),</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figsize=(20, 10))</li>
+                <li style="background-color:#EFF;">plt.subplots_adjust(bottom=0.4)</li>
+                <li style="background-color:#EEF;">plt.show()</li>
+                <li style="background-color:#EFF;">print(df_data.columns)</li>
+                <li style="background-color:#EEF;">print(df_data)</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">import pandas as pd  # データ分析に用いるライブラリ</li>
+                <li style="background-color:#EFF;">import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和</li>
+                <li style="background-color:#EEF;">plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定</li>
+                <li style="background-color:#EFF;">plt.rcParams['font.size'] = 8</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">data_path = "./data.csv"</li>
+                <li style="background-color:#EEF;">df_data = pd.read_csv(data_path, encoding="utf-8-sig")</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">print(df_data.groupby("駅").mean().loc["新横浜駅", ["合計時間", "家賃", "面積", "築年数"]])</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">df_mean = df_data[df_data.loc[:, "路線"] == "ＪＲ横浜線"]</li>
+                <li style="background-color:#EEF;">df_mean.groupby("駅").mean().loc[:, ["合計時間", "家賃", "面積", "築年数"]].plot.bar(subplots=True,</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout=(2, 2),</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figsize=(16,10))</li>
+                <li style="background-color:#EFF;">plt.subplots_adjust(left=0.01, right=0.99, wspace=0.05, bottom=0.2)</li>
+                <li style="background-color:#EEF;">plt.show()</li>
+                <li style="background-color:#EFF;">print(df_data.columns)</li>
+                <li style="background-color:#EEF;">print(df_data)</li>
+                <li style="background-color:#EFF;">import pandas as pd  # データ分析に用いるライブラリ</li>
+                <li style="background-color:#EEF;">import matplotlib.pyplot as plt  # グラフ表示に用いるライブラリ</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">pd.set_option('display.unicode.east_asian_width', True)  # 表示のずれを少し緩和</li>
+                <li style="background-color:#EFF;">plt.rcParams['font.family'] = 'IPAexGothic'  # グラフ表示におけるフォントの指定</li>
+                <li style="background-color:#EEF;">plt.rcParams['font.size'] = 8</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">data_path = "./data.csv"</li>
+                <li style="background-color:#EFF;">df_data = pd.read_csv(data_path, encoding="utf-8-sig")</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">print(df_data.groupby("駅").mean().loc["新横浜駅", ["合計時間", "家賃", "面積", "築年数"]])</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">df_mean = df_data[df_data.loc[:, "路線"] == "東急東横線"]</li>
+                <li style="background-color:#EFF;">df_mean.groupby("駅").mean().loc[:, ["合計時間", "家賃", "面積", "築年数"]].plot.bar(subplots=True,</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout=(2, 2),</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figsize=(20,10))</li>
+                <li style="background-color:#EEF;">plt.subplots_adjust(left=0.05, right=0.99, wspace=0.05, bottom=0.2)</li>
+                <li style="background-color:#EFF;">plt.show()</li>
+                <li style="background-color:#EEF;">print(df_data.columns)</li>
+                <li style="background-color:#EFF;">print(df_data)</li>
+        </code>
+        </div>
+
+</body>
+</html>
